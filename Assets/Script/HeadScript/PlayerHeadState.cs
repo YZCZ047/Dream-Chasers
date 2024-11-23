@@ -13,8 +13,10 @@ public class PlayerHeadState
     protected float stateTimer;
 
     protected float xInput;
+    protected float xInputJump;
     // 动画状态对应的Animator参数名称。
     private string animBoolName;
+
 
     // **构造函数**
     // 使用玩家对象、状态机和动画布尔参数名称初始化状态。
@@ -37,7 +39,11 @@ public class PlayerHeadState
     public virtual void Update()
     {
         stateTimer -= Time.deltaTime;
+
         xInput = Input.GetAxisRaw("Horizontal");
+        xInputJump = Input.GetAxisRaw("Horizontal");
+        playerHead.anim.SetFloat("yVelocity", playerHead.rb.velocity.y);
+
 
     }
     // **退出状态**
