@@ -31,7 +31,7 @@ public class PlayerHeadIdleState : PlayerHeadState
         {
             stateMachine.ChangeStateHead(playerHead.moveStateHead);
         }
-        if (playerHead.IsGroundDetected() && Input.GetKeyDown(KeyCode.Space))// 在地上并且按空格
+        if (playerHead.IsGroundDetected() && Input.GetKeyDown(KeyCode.W))// 在地上并且按空格
         {
             playerHead.SetForce(0, playerHead.jumpForce);// 给予力
             stateMachine.ChangeStateHead(playerHead.jumpStateHead);// 进入跳跃状态
