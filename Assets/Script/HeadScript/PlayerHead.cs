@@ -38,6 +38,17 @@ public class PlayerHead : MonoBehaviour
     public int facingDir = 1;
     public bool facingRight = true;
 
+    [Header("Health")]
+    public static int Life;
+    public static int dreamShard;
+    public static bool isAttacked;
+
+    [Header("AfterDamage")]
+    public static float invincible;
+    public float invincibleStay = 2f;
+    public SpriteRenderer spr;
+
+    [Header(" ")]
     public Rigidbody2D rb;
     public Animator anim;
 
@@ -94,10 +105,6 @@ public class PlayerHead : MonoBehaviour
 
         Ground = IsGroundDetected();
 
-        WallDetect();
-
-        DashDirChange();
-
         dashTimeCool -= Time.deltaTime;
         isWallCool -= Time.deltaTime;
         isDashCool -= Time.deltaTime;
@@ -128,9 +135,6 @@ public class PlayerHead : MonoBehaviour
         {
             isWall = false;
         }
-
-
-
     }
     #region DashDirChange
     private void DashDirChange()
